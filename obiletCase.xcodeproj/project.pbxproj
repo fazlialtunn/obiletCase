@@ -13,10 +13,11 @@
 		8B3098602C6B5D9100B0BCAD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B30985F2C6B5D9100B0BCAD /* Assets.xcassets */; };
 		8B3098632C6B5D9100B0BCAD /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 8B3098622C6B5D9100B0BCAD /* Base */; };
 		8B30986F2C6B618300B0BCAD /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B30986E2C6B618300B0BCAD /* DetailViewController.swift */; };
-		8B3098772C6B61FD00B0BCAD /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3098762C6B61FD00B0BCAD /* Home.swift */; };
-		8B3098792C6B621400B0BCAD /* ProductDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3098782C6B621400B0BCAD /* ProductDetail.swift */; };
 		8B30987B2C6B622800B0BCAD /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B30987A2C6B622800B0BCAD /* HomeViewModel.swift */; };
 		8B30987D2C6B623900B0BCAD /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B30987C2C6B623900B0BCAD /* DetailViewModel.swift */; };
+		8B3098802C6B633C00B0BCAD /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B30987F2C6B633C00B0BCAD /* APICaller.swift */; };
+		8B3098822C6B636F00B0BCAD /* ServiceConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3098812C6B636F00B0BCAD /* ServiceConstants.swift */; };
+		8B3098852C6B643600B0BCAD /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3098842C6B643600B0BCAD /* ProductModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,10 +29,11 @@
 		8B3098622C6B5D9100B0BCAD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8B3098642C6B5D9100B0BCAD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8B30986E2C6B618300B0BCAD /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
-		8B3098762C6B61FD00B0BCAD /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
-		8B3098782C6B621400B0BCAD /* ProductDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetail.swift; sourceTree = "<group>"; };
 		8B30987A2C6B622800B0BCAD /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		8B30987C2C6B623900B0BCAD /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		8B30987F2C6B633C00B0BCAD /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
+		8B3098812C6B636F00B0BCAD /* ServiceConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceConstants.swift; sourceTree = "<group>"; };
+		8B3098842C6B643600B0BCAD /* ProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,8 @@
 			isa = PBXGroup;
 			children = (
 				8B30986D2C6B615200B0BCAD /* Support */,
+				8B30987E2C6B632A00B0BCAD /* Network */,
+				8B3098832C6B642B00B0BCAD /* Model */,
 				8B30986A2C6B612400B0BCAD /* Scenes */,
 				8B30985F2C6B5D9100B0BCAD /* Assets.xcassets */,
 				8B3098612C6B5D9100B0BCAD /* LaunchScreen.storyboard */,
@@ -85,7 +89,6 @@
 		8B30986B2C6B613100B0BCAD /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				8B3098702C6B61C000B0BCAD /* Model */,
 				8B3098712C6B61C700B0BCAD /* View */,
 				8B3098722C6B61CB00B0BCAD /* Viewmodel */,
 			);
@@ -95,7 +98,6 @@
 		8B30986C2C6B613600B0BCAD /* Detail */ = {
 			isa = PBXGroup;
 			children = (
-				8B3098732C6B61D100B0BCAD /* Model */,
 				8B3098742C6B61D700B0BCAD /* View */,
 				8B3098752C6B61DA00B0BCAD /* Viewmodel */,
 			);
@@ -109,14 +111,6 @@
 				8B3098582C6B5D9000B0BCAD /* SceneDelegate.swift */,
 			);
 			path = Support;
-			sourceTree = "<group>";
-		};
-		8B3098702C6B61C000B0BCAD /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				8B3098762C6B61FD00B0BCAD /* Home.swift */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		8B3098712C6B61C700B0BCAD /* View */ = {
@@ -135,14 +129,6 @@
 			path = Viewmodel;
 			sourceTree = "<group>";
 		};
-		8B3098732C6B61D100B0BCAD /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				8B3098782C6B621400B0BCAD /* ProductDetail.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		8B3098742C6B61D700B0BCAD /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -157,6 +143,23 @@
 				8B30987C2C6B623900B0BCAD /* DetailViewModel.swift */,
 			);
 			path = Viewmodel;
+			sourceTree = "<group>";
+		};
+		8B30987E2C6B632A00B0BCAD /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				8B30987F2C6B633C00B0BCAD /* APICaller.swift */,
+				8B3098812C6B636F00B0BCAD /* ServiceConstants.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		8B3098832C6B642B00B0BCAD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8B3098842C6B643600B0BCAD /* ProductModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,8 +235,9 @@
 				8B30985B2C6B5D9000B0BCAD /* HomeViewController.swift in Sources */,
 				8B3098572C6B5D9000B0BCAD /* AppDelegate.swift in Sources */,
 				8B30987B2C6B622800B0BCAD /* HomeViewModel.swift in Sources */,
-				8B3098792C6B621400B0BCAD /* ProductDetail.swift in Sources */,
-				8B3098772C6B61FD00B0BCAD /* Home.swift in Sources */,
+				8B3098822C6B636F00B0BCAD /* ServiceConstants.swift in Sources */,
+				8B3098852C6B643600B0BCAD /* ProductModel.swift in Sources */,
+				8B3098802C6B633C00B0BCAD /* APICaller.swift in Sources */,
 				8B3098592C6B5D9000B0BCAD /* SceneDelegate.swift in Sources */,
 				8B30986F2C6B618300B0BCAD /* DetailViewController.swift in Sources */,
 				8B30987D2C6B623900B0BCAD /* DetailViewModel.swift in Sources */,

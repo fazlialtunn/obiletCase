@@ -7,11 +7,21 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
-
+final class HomeViewController: UIViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .label
+        APICaller().fetchData { result in
+            print("result in")
+            switch result {
+            case .success(let products):
+                print("Result: \(products)")
+            case .failure(let error):
+                print(error.localizedDescription)
+                print("failure")
+            }
+        }
     }
 }
 
