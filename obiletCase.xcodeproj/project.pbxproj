@@ -12,6 +12,11 @@
 		8B30985B2C6B5D9000B0BCAD /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B30985A2C6B5D9000B0BCAD /* HomeViewController.swift */; };
 		8B3098602C6B5D9100B0BCAD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B30985F2C6B5D9100B0BCAD /* Assets.xcassets */; };
 		8B3098632C6B5D9100B0BCAD /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 8B3098622C6B5D9100B0BCAD /* Base */; };
+		8B30986F2C6B618300B0BCAD /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B30986E2C6B618300B0BCAD /* DetailViewController.swift */; };
+		8B3098772C6B61FD00B0BCAD /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3098762C6B61FD00B0BCAD /* Home.swift */; };
+		8B3098792C6B621400B0BCAD /* ProductDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3098782C6B621400B0BCAD /* ProductDetail.swift */; };
+		8B30987B2C6B622800B0BCAD /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B30987A2C6B622800B0BCAD /* HomeViewModel.swift */; };
+		8B30987D2C6B623900B0BCAD /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B30987C2C6B623900B0BCAD /* DetailViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +27,11 @@
 		8B30985F2C6B5D9100B0BCAD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8B3098622C6B5D9100B0BCAD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8B3098642C6B5D9100B0BCAD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8B30986E2C6B618300B0BCAD /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		8B3098762C6B61FD00B0BCAD /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		8B3098782C6B621400B0BCAD /* ProductDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetail.swift; sourceTree = "<group>"; };
+		8B30987A2C6B622800B0BCAD /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		8B30987C2C6B623900B0BCAD /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +64,99 @@
 		8B3098552C6B5D9000B0BCAD /* obiletCase */ = {
 			isa = PBXGroup;
 			children = (
-				8B3098562C6B5D9000B0BCAD /* AppDelegate.swift */,
-				8B3098582C6B5D9000B0BCAD /* SceneDelegate.swift */,
-				8B30985A2C6B5D9000B0BCAD /* HomeViewController.swift */,
+				8B30986D2C6B615200B0BCAD /* Support */,
+				8B30986A2C6B612400B0BCAD /* Scenes */,
 				8B30985F2C6B5D9100B0BCAD /* Assets.xcassets */,
 				8B3098612C6B5D9100B0BCAD /* LaunchScreen.storyboard */,
 				8B3098642C6B5D9100B0BCAD /* Info.plist */,
 			);
 			path = obiletCase;
+			sourceTree = "<group>";
+		};
+		8B30986A2C6B612400B0BCAD /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				8B30986B2C6B613100B0BCAD /* Home */,
+				8B30986C2C6B613600B0BCAD /* Detail */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		8B30986B2C6B613100B0BCAD /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				8B3098702C6B61C000B0BCAD /* Model */,
+				8B3098712C6B61C700B0BCAD /* View */,
+				8B3098722C6B61CB00B0BCAD /* Viewmodel */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		8B30986C2C6B613600B0BCAD /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				8B3098732C6B61D100B0BCAD /* Model */,
+				8B3098742C6B61D700B0BCAD /* View */,
+				8B3098752C6B61DA00B0BCAD /* Viewmodel */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		8B30986D2C6B615200B0BCAD /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				8B3098562C6B5D9000B0BCAD /* AppDelegate.swift */,
+				8B3098582C6B5D9000B0BCAD /* SceneDelegate.swift */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		8B3098702C6B61C000B0BCAD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8B3098762C6B61FD00B0BCAD /* Home.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8B3098712C6B61C700B0BCAD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8B30985A2C6B5D9000B0BCAD /* HomeViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8B3098722C6B61CB00B0BCAD /* Viewmodel */ = {
+			isa = PBXGroup;
+			children = (
+				8B30987A2C6B622800B0BCAD /* HomeViewModel.swift */,
+			);
+			path = Viewmodel;
+			sourceTree = "<group>";
+		};
+		8B3098732C6B61D100B0BCAD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8B3098782C6B621400B0BCAD /* ProductDetail.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8B3098742C6B61D700B0BCAD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8B30986E2C6B618300B0BCAD /* DetailViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8B3098752C6B61DA00B0BCAD /* Viewmodel */ = {
+			isa = PBXGroup;
+			children = (
+				8B30987C2C6B623900B0BCAD /* DetailViewModel.swift */,
+			);
+			path = Viewmodel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,7 +231,12 @@
 			files = (
 				8B30985B2C6B5D9000B0BCAD /* HomeViewController.swift in Sources */,
 				8B3098572C6B5D9000B0BCAD /* AppDelegate.swift in Sources */,
+				8B30987B2C6B622800B0BCAD /* HomeViewModel.swift in Sources */,
+				8B3098792C6B621400B0BCAD /* ProductDetail.swift in Sources */,
+				8B3098772C6B61FD00B0BCAD /* Home.swift in Sources */,
 				8B3098592C6B5D9000B0BCAD /* SceneDelegate.swift in Sources */,
+				8B30986F2C6B618300B0BCAD /* DetailViewController.swift in Sources */,
+				8B30987D2C6B623900B0BCAD /* DetailViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
