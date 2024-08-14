@@ -22,6 +22,7 @@
 		8B52D10A2C6CF483004FABCC /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 8B52D1092C6CF483004FABCC /* SnapKit */; };
 		8B6924362C6CF9B6009BF00B /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 8B6924352C6CF9B6009BF00B /* SDWebImage */; };
 		8B6924382C6CF9B6009BF00B /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 8B6924372C6CF9B6009BF00B /* SDWebImageMapKit */; };
+		8B69243A2C6D43CF009BF00B /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6924392C6D43CF009BF00B /* CategoryCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		8B3098812C6B636F00B0BCAD /* ServiceConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceConstants.swift; sourceTree = "<group>"; };
 		8B3098842C6B643600B0BCAD /* ProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductModel.swift; sourceTree = "<group>"; };
 		8B3098862C6CF07D00B0BCAD /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
+		8B6924392C6D43CF009BF00B /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +128,7 @@
 			children = (
 				8B30985A2C6B5D9000B0BCAD /* HomeViewController.swift */,
 				8B3098862C6CF07D00B0BCAD /* HomeTableViewCell.swift */,
+				8B6924392C6D43CF009BF00B /* CategoryCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -258,6 +261,7 @@
 				8B3098802C6B633C00B0BCAD /* APICaller.swift in Sources */,
 				8B3098872C6CF07D00B0BCAD /* HomeTableViewCell.swift in Sources */,
 				8B3098592C6B5D9000B0BCAD /* SceneDelegate.swift in Sources */,
+				8B69243A2C6D43CF009BF00B /* CategoryCollectionViewCell.swift in Sources */,
 				8B30986F2C6B618300B0BCAD /* DetailViewController.swift in Sources */,
 				8B30987D2C6B623900B0BCAD /* DetailViewModel.swift in Sources */,
 			);

@@ -7,30 +7,62 @@
 
 import Foundation
 
-class HomeViewModel {
+final class HomeViewModel {
     
+    private var allProducts = [ProductModel]()
     var products = [ProductModel]()
+    var filteredProducts = [ProductModel]()
+    let categories = ["electronics", "jewelery", "men's clothing", "women's clothing"]
+    var selectedCategory: String?
     
     func fetchData() {
         APICaller().fetchData { [weak self] result in
-            print("result in")
             switch result {
             case .success(let newProducts):
-                print("Result: \(newProducts)")
+                self?.allProducts = newProducts
                 self?.products = newProducts
-                // Notify the view controller about the update
+                self?.filteredProducts = newProducts
                 self?.didUpdateProducts?()
             case .failure(let error):
                 print(error.localizedDescription)
-                print("failure")
             }
         }
     }
     
+    
+    func filterProducts(by searchText: String) {
+        if searchText.isEmpty {
+            products = allProducts
+        } else {
+            products = allProducts.filter { $0.title.lowercased().contains(searchText.lowercased()) }
+        }
+        didUpdateProducts?()
+    }
+    
+    func filterProducts(with category: String) {
+        if category.isEmpty {
+            filteredProducts = products
+        } else {
+            filteredProducts = products.filter { $0.category.rawValue == category }
+        }
+        didUpdateProducts?()
+    }
+    
+    
     var didUpdateProducts: (() -> Void)?
     
     func numberOfSection(_ section: Int) -> Int {
-        return products.count
+        return filteredProducts.count
+    }
+    
+    func product(at index: Int) -> ProductModel {
+        return filteredProducts[index]
+    }
+    
+    func clearFilter() {
+        selectedCategory = nil
+        filteredProducts = products
+        didUpdateProducts?()
     }
 }
 

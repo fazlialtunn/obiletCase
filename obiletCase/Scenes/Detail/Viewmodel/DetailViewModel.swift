@@ -7,6 +7,23 @@
 
 import Foundation
 
-class DetailViewModel {
+final class DetailViewModel {
+    let product: ProductModel?
     
+    init(product: ProductModel) {
+        self.product = product
+    }
+    
+    var title: String {
+        return product?.title ?? "Title"
+    }
+    
+    var description: String {
+        return product?.description ?? "Description"
+    }
+    
+    var imageUrl: URL? {
+        return URL(string: product?.image ?? "")
+    }
 }
+
