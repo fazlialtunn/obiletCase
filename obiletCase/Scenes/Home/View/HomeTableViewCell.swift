@@ -15,9 +15,13 @@ class HomeTableViewCell: UITableViewCell {
     lazy var productImage: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleToFill
-        imageView.layer.cornerRadius = 5
-        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.layer.cornerRadius = 10
+        imageView.layer.shadowColor = UIColor.black.cgColor
+        imageView.layer.shadowOffset = CGSize(width: 0, height: 2)
+        imageView.layer.shadowOpacity = 0.2
+        imageView.layer.shadowRadius = 4
         imageView.clipsToBounds = true
+        imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
     
@@ -63,7 +67,7 @@ class HomeTableViewCell: UITableViewCell {
         }
         
         titleLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(10)
+            make.top.equalToSuperview().offset(30)
             make.left.equalTo(productImage.snp.right).offset(10)
             make.right.equalToSuperview().offset(-8)
         }
@@ -79,7 +83,7 @@ class HomeTableViewCell: UITableViewCell {
             make.top.equalTo(productPrice.snp.bottom).offset(5)
             make.left.equalTo(productImage.snp.right).offset(10)
             make.right.equalToSuperview().offset(-8)
-            make.bottom.lessThanOrEqualToSuperview().offset(-10)
+            make.bottom.equalToSuperview().offset(-50)
         }
     }
     
@@ -89,8 +93,8 @@ class HomeTableViewCell: UITableViewCell {
     
     func configure(with product: ProductModel) {
         titleLabel.text = product.title
-        productPrice.text = String(describing: product.price) + "$"
-        productRating.text = String(describing: product.rating.rate) + "⭐️" + (" (\(product.rating.count)") + "👤)"
+        productPrice.text = "Price 💵: " + String(describing: product.price) + "$"
+        productRating.text = "Rating: " + String(describing: product.rating.rate) + "⭐️" + (" (\(product.rating.count)") + "👤)"
         if let imageUrl = URL(string: product.image) {
             // Assuming you're using a library like SDWebImage to load images
             productImage.sd_setImage(with: imageUrl, completed: nil)
