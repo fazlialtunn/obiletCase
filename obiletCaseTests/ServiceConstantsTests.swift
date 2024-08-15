@@ -16,4 +16,3 @@ final class ServiceConstantsTests: XCTestCase {
         XCTAssertEqual(expectedURL, actualURL)
     }
 }
-

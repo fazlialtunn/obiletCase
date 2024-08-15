@@ -8,6 +8,15 @@
 import XCTest
 @testable import obiletCase
 
+// Mock for APICaller
+class MockAPICaller: APICaller {
+    var mockProducts: [ProductModel] = []
+    
+    override func fetchData(completion: @escaping (Result<[ProductModel], Error>) -> Void) {
+        completion(.success(mockProducts))
+    }
+}
+
 final class HomeViewModelTests: XCTestCase {
 
     private var viewModel: HomeViewModel!
@@ -31,7 +40,15 @@ final class HomeViewModelTests: XCTestCase {
     func testFetchData() {
         
         mockAPICaller.mockProducts = [
-            ProductModel(id: 1, title: "Sample Product", price: 99.99, description: "Description", category: .electronics, image: "", rating: Rating(rate: 4.5, count: 120))
+            ProductModel(
+                id: 1,
+                title: "Sample Product",
+                price: 99.99,
+                description: "Description",
+                category: .electronics,
+                image: "",
+                rating: Rating(rate: 4.5, count: 120)
+            )
         ]
         
         viewModel.didUpdateProducts = {
@@ -80,14 +97,5 @@ final class HomeViewModelTests: XCTestCase {
         viewModel.fetchData()
         viewModel.filterProducts(with: "electronics")
         waitForExpectations(timeout: 1, handler: nil)
-    }
-}
-
-// Mock for APICaller
-class MockAPICaller: APICaller {
-    var mockProducts: [ProductModel] = []
-    
-    override func fetchData(completion: @escaping (Result<[ProductModel], Error>) -> Void) {
-        completion(.success(mockProducts))
     }
 }

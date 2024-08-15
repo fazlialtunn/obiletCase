@@ -43,7 +43,7 @@ final class DetailViewModelTests: XCTestCase {
     }
     
     private func testPrice() {
-        XCTAssertEqual(viewModel.price,  99.99)
+        XCTAssertEqual(viewModel.price, 99.99)
     }
     
     private func testRating() {
