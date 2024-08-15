@@ -44,6 +44,23 @@ The project follows the MVVM (Model-View-ViewModel) architecture, making the cod
 - **HomeTableViewCell**: A custom table view cell used in the product list.
 - **CategoryCollectionViewCell**: A custom collection view cell used for category filtering.
 
+### Unit Tests
+
+The project includes unit tests to ensure the functionality and correctness of various components. Key aspects covered in the unit tests are:
+
+- **ViewModel Tests**: 
+  - **HomeViewModel**: Tests validate the correct filtering and searching of products based on user input and category selection. It ensures that the `filteredProducts` array updates accurately based on different filtering criteria.
+  - **DetailViewModel**: Tests ensure that the product details are correctly populated and displayed in the `DetailViewController`.
+
+- **Model Tests**: 
+  - **ProductModel**: Tests ensure that the `ProductModel` correctly encodes and decodes from JSON, verifying that the model’s data structure aligns with the API response.
+
+- **Networking Tests**: 
+  - **APICaller**: Tests validate that network requests are properly formed and that the data is parsed correctly into `ProductModel` instances. Mock data and responses are used to simulate API calls and ensure that the `fetchData` method behaves as expected.
+
+- **Service Constants Tests**: 
+  - Tests ensure that the base URL provided by `ServiceConstants` is correct and used consistently throughout the network layer.
+
 ## Dependencies
 
 - [SnapKit](https://github.com/SnapKit/SnapKit) - Used for Auto Layout constraints in code.
