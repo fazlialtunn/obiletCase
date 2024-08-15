@@ -40,52 +40,26 @@ final class DetailViewModelTests: XCTestCase {
     }
     
     private func testTitle() {
-        XCTAssertEqual(
-            viewModel.title,
-            "Sample Product",
-            "Title should match the product title."
-        )
+        XCTAssertEqual(viewModel.title, "Sample Product")
     }
     
     private func testDescription() {
-        XCTAssertEqual(
-            viewModel.description,
-            "This is a sample product description.",
-            "Description should match the product description."
-        )
+        XCTAssertEqual(viewModel.description, "This is a sample product description.")
     }
     
     private func testPrice() {
-        XCTAssertEqual(
-            viewModel.price,
-            99.99,
-            "Price should match the product price."
-        )
+        XCTAssertEqual(viewModel.price,  99.99,)
     }
     
     private func testRating() {
-        XCTAssertEqual(
-            viewModel.rating,
-            4.5,
-            "Rating should match the product rating."
-        )
+        XCTAssertEqual(viewModel.rating, 4.5)
     }
     
     private func testReviewerCount() {
-        XCTAssertEqual(
-            viewModel.reviewerCount,
-            120,
-            "Reviewer count should match the product reviewer count."
-        )
+        XCTAssertEqual( viewModel.reviewerCount, 120)
     }
     
     private func testImageUrl() {
-        XCTAssertEqual(
-            viewModel.imageUrl,
-            URL(
-                string: "https://example.com/image.jpg"
-            ),
-            "Image URL should match the product image URL."
-        )
+        XCTAssertEqual(viewModel.imageUrl, URL(string: "https://example.com/image.jpg"))
     }
 }
