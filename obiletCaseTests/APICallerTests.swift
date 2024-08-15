@@ -106,8 +106,6 @@ class APICallerTests: XCTestCase {
     }
     
     private class MockURLSessionDataTask: URLSessionDataTask {
-        override func resume() {
-            // No-op
-        }
+        
     }
 }
