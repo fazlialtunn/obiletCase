@@ -11,7 +11,7 @@ import SDWebImage
 
 final class DetailViewController: UIViewController {
     
-    var viewModel: DetailViewModel?
+    private var viewModel: DetailViewModel?
     
     private let productImageView: UIImageView = {
         let imageView = UIImageView()

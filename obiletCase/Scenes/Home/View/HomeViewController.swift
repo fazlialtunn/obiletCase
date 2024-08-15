@@ -9,7 +9,7 @@ import UIKit
 
 final class HomeViewController: UIViewController {
     
-    var viewModel = HomeViewModel()
+    private var viewModel = HomeViewModel()
     private var selectedCategoryIndexPath: IndexPath?
     
     private lazy var searchBar: UISearchBar = {
