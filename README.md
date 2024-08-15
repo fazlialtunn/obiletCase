@@ -22,7 +22,7 @@ ObiletCase is an iOS application built using Swift, focusing on product display 
 The project follows the MVVM (Model-View-ViewModel) architecture, making the code modular, testable, and easier to maintain.
 
 - **Model**: `ProductModel.swift` defines the structure of the data retrieved from the API.
-- **ViewModel**: `HomeViewModel.swift` manages the logic for filtering and searching products.
+- **ViewModel**: `HomeViewModel` and `DetailViewModel` manages the logic for filtering and searching products.
 - **View**: The UI is composed of `HomeViewController`, `DetailViewController`, `HomeTableViewCell`, and `CategoryCollectionViewCell`.
 
 ### Networking
@@ -53,7 +53,7 @@ The project follows the MVVM (Model-View-ViewModel) architecture, making the cod
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/yourusername/obiletcase.git
+    git clone https://github.com/fazlialtunn/obiletCase.git
     ```
 
 2. Open the project in Xcode:
