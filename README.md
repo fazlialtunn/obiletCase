@@ -1,4 +1,4 @@
-![Simulator Screenshot - iPhone 15 Pro - 2024-08-16 at 00 29 14](https://github.com/user-attachments/assets/bbb2f909-9a37-408b-bef0-46abaf6c01ab)# ObiletCase
+# ObiletCase
 
 ObiletCase is an iOS application built using Swift, focusing on product display and filtering functionalities. It fetches product data from a fake online store API and displays it in a user-friendly interface with category filtering and search capabilities.
 
@@ -14,7 +14,7 @@ ObiletCase is an iOS application built using Swift, focusing on product display 
 | Home Screen | Product Details |
 |-------------|-----------------|
 | ![Home Screen] ![Simulator Screenshot - iPhone 15 Pro - 2024-08-16 at 00 29 14](https://github.com/user-attachments/assets/9e400b2e-5064-4834-897f-b75eeefcc823)
-| ![Product Details](path_to_product_details_image)![Simulator Screenshot - iPhone 15 Pro - 2024-08-16 at 00 29 26](https://github.com/user-attachments/assets/1ab85470-e59d-424a-9c0c-cef815266661)
+| ![Product Details][Simulator Screenshot - iPhone 15 Pro - 2024-08-16 at 00 29 26](https://github.com/user-attachments/assets/1ab85470-e59d-424a-9c0c-cef815266661)
  |
 
 ## Code Overview
