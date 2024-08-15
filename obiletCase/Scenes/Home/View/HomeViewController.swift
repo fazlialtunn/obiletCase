@@ -7,11 +7,16 @@
 
 import UIKit
 
+/// The main view controller for displaying a list of products and category filtering.
 final class HomeViewController: UIViewController {
     
+    // The view model responsible for managing the data and business logic.
     var viewModel = HomeViewModel()
+    
+    // Index path of the currently selected category in the collection view.
     private var selectedCategoryIndexPath: IndexPath?
     
+    // Lazy-loaded search bar for product search functionality.
     private lazy var searchBar: UISearchBar = {
         let searchBar = UISearchBar()
         searchBar.placeholder = "Search Products"
@@ -19,6 +24,7 @@ final class HomeViewController: UIViewController {
         return searchBar
     }()
     
+    // Lazy-loaded collection view for category selection.
     lazy var categoryCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
@@ -32,12 +38,14 @@ final class HomeViewController: UIViewController {
         return collectionView
     }()
     
+    // Lazy-loaded table view for displaying the list of products.
     lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.separatorStyle = .singleLine
         return tableView
     }()
     
+    // View lifecycle method for initial setup.
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
@@ -51,6 +59,7 @@ final class HomeViewController: UIViewController {
         fetchData()
     }
     
+    // Configures the navigation bar with a custom title view.
     private func setupNavigationBar() {
         let titleView = UIView()
         
@@ -60,7 +69,7 @@ final class HomeViewController: UIViewController {
         titleLabel.textColor = .label
         
         let iconImageView = UIImageView()
-        iconImageView.image = UIImage(systemName: "house.fill") // Use your desired icon here
+        iconImageView.image = UIImage(systemName: "house.fill") // Icon for home
         iconImageView.contentMode = .scaleAspectFit
         iconImageView.tintColor = .label
         
@@ -71,7 +80,7 @@ final class HomeViewController: UIViewController {
         iconImageView.snp.makeConstraints { make in
             make.leading.equalToSuperview()
             make.centerY.equalToSuperview()
-            make.height.width.equalTo(24) // Adjust size as needed
+            make.height.width.equalTo(24)
         }
         
         titleLabel.snp.makeConstraints { make in
@@ -84,6 +93,7 @@ final class HomeViewController: UIViewController {
         titleView.sizeToFit()
     }
     
+    // Configures the search bar's layout and appearance.
     private func configureSearchBar() {
         view.addSubview(searchBar)
         searchBar.snp.makeConstraints { make in
@@ -93,6 +103,7 @@ final class HomeViewController: UIViewController {
         }
     }
     
+    // Configures the category collection view's layout and appearance.
     private func configureCategoryCollectionView() {
         view.addSubview(categoryCollectionView)
         categoryCollectionView.snp.makeConstraints { make in
@@ -102,6 +113,7 @@ final class HomeViewController: UIViewController {
         }
     }
     
+    // Configures the table view's layout and appearance.
     private func configureTableView(){
         view.addSubview(tableView)
         tableView.delegate = self
@@ -114,10 +126,12 @@ final class HomeViewController: UIViewController {
         }
     }
     
+    // Fetches product data from the view model.
     private func fetchData() {
         viewModel.fetchData()
     }
     
+    // Binds the view model's update callback to refresh the table view when data changes.
     private func bindViewModel() {
         viewModel.didUpdateProducts = { [weak self] in
             DispatchQueue.main.async {
@@ -127,12 +141,14 @@ final class HomeViewController: UIViewController {
     }
 }
 
+// MARK: - UISearchBarDelegate
 extension HomeViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         viewModel.filterProducts(by: searchText)
     }
 }
 
+// MARK: - UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.categories.count
@@ -174,6 +190,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
 }
 
+// MARK: - UITableViewDelegate, UITableViewDataSource
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.numberOfSection(section)
@@ -191,6 +208,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
+// MARK: - UITableViewDelegate (for handling row selection)
 extension HomeViewController {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let product = viewModel.product(at: indexPath.row)

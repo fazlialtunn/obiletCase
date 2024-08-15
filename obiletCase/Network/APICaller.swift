@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// A class responsible for making network requests to fetch product data.
 class APICaller {
     private var session: URLSession
     
@@ -14,6 +15,9 @@ class APICaller {
         self.session = session
     }
     
+    /// Fetches product data from the API.
+    /// - Parameter completion: A closure that gets called with the result of the network request.
+    ///   It returns either an array of ProductModel on success or an Error on failure.
     func fetchData(completion: @escaping ((Result<[ProductModel], Error>) -> ())) {
         let url = URL(string: ServiceConstants.serviceEndpoint())
         print("URL: \(url)")

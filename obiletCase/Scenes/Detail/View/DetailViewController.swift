@@ -9,10 +9,13 @@ import UIKit
 import SnapKit
 import SDWebImage
 
+// ViewController to display detailed information about a selected product
 final class DetailViewController: UIViewController {
     
+    // ViewModel that provides data for this view controller
     var viewModel: DetailViewModel?
     
+    // UI components
     private let productImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
@@ -33,7 +36,7 @@ final class DetailViewController: UIViewController {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 17, weight: .bold)
         label.textColor = .systemGreen
-        label.layer.backgroundColor = UIColor.systemGray6.cgColor
+        label.backgroundColor = .systemGray6
         label.layer.cornerRadius = 4
         label.layer.masksToBounds = true
         label.textAlignment = .center
@@ -61,8 +64,6 @@ final class DetailViewController: UIViewController {
         label.layer.shadowRadius = 4
         return label
     }()
-    
-    
     
     private let descriptionLabel: UILabel = {
         let label = UILabel()
@@ -94,6 +95,7 @@ final class DetailViewController: UIViewController {
         configureWithViewModel()
     }
     
+    // Set up UI elements with constraints
     private func setupViews() {
         view.addSubview(productImageView)
         view.addSubview(titleLabel)
@@ -102,6 +104,7 @@ final class DetailViewController: UIViewController {
         view.addSubview(ratingLabel)
         view.addSubview(addToCartButton)
         
+        // Layout constraints for productImageView
         productImageView.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide).offset(16)
             make.centerX.equalTo(view)
@@ -109,19 +112,22 @@ final class DetailViewController: UIViewController {
             make.width.equalToSuperview().multipliedBy(0.9)
         }
         
+        // Layout constraints for titleLabel
         titleLabel.snp.makeConstraints { make in
             make.top.equalTo(productImageView.snp.bottom).offset(16)
             make.leading.equalToSuperview().offset(16)
             make.trailing.equalToSuperview().offset(-16)
         }
         
+        // Layout constraints for priceLabel
         priceLabel.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom).offset(20)
             make.leading.equalToSuperview().offset(16)
             make.width.lessThanOrEqualToSuperview().multipliedBy(0.35)
-            make.height.equalTo(40) // Adjusted height for better appearance
+            make.height.equalTo(40)
         }
         
+        // Layout constraints for ratingLabel
         ratingLabel.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom).offset(20)
             make.leading.equalTo(priceLabel.snp.trailing).offset(10)
@@ -129,40 +135,43 @@ final class DetailViewController: UIViewController {
             make.height.equalTo(priceLabel)
         }
         
+        // Layout constraints for descriptionLabel
         descriptionLabel.snp.makeConstraints { make in
             make.top.equalTo(priceLabel.snp.bottom).offset(16)
             make.leading.equalTo(titleLabel)
             make.trailing.equalTo(titleLabel)
         }
         
+        // Layout constraints for addToCartButton
         addToCartButton.snp.makeConstraints { make in
             make.bottom.equalTo(view.safeAreaLayoutGuide).offset(-16)
             make.leading.equalTo(titleLabel)
             make.trailing.equalTo(titleLabel)
-            make.height.equalTo(55) // Slightly larger button
+            make.height.equalTo(55)
         }
     }
     
+    // Configure the view with data from the viewModel
     private func configureWithViewModel() {
         guard let viewModel = viewModel else { return }
-        let descriptionText = UILabel()
-        descriptionText.font = .systemFont(ofSize: 17, weight: .bold)
-        descriptionText.text = "Description: "
         
         titleLabel.text = viewModel.title
-        priceLabel.text = "Price: " + String(describing: viewModel.price) + "$"
-        descriptionLabel.text = String(describing: viewModel.description)
-        ratingLabel.text = "Rating: \(viewModel.rating)" + "⭐️" + " (\(viewModel.reviewerCount)👤)"
+        priceLabel.text = "Price: \(viewModel.price)$"
+        descriptionLabel.text = viewModel.description
+        ratingLabel.text = "Rating: \(viewModel.rating) ⭐️ (\(viewModel.reviewerCount)👤)"
         
+        // Load image asynchronously
         if let imageURL = viewModel.imageUrl {
             productImageView.sd_setImage(with: imageURL, completed: nil)
         }
     }
     
+    // Handle Add to Cart button tap
     @objc private func addToCartTapped() {
         showSuccessPopup()
     }
     
+    // Show a popup to indicate success
     private func showSuccessPopup() {
         let popupView = UIView()
         popupView.backgroundColor = UIColor.systemGreen.withAlphaComponent(0.9)
@@ -188,22 +197,26 @@ final class DetailViewController: UIViewController {
         popupView.addSubview(messageLabel)
         view.addSubview(popupView)
         
+        // Layout constraints for popupView
         NSLayoutConstraint.activate([
             popupView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             popupView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             popupView.widthAnchor.constraint(equalToConstant: 300),
-            popupView.heightAnchor.constraint(equalToConstant: 120), // Adjusted height for better appearance
+            popupView.heightAnchor.constraint(equalToConstant: 120),
             
+            // Layout constraints for checkmarkImageView
             checkmarkImageView.leadingAnchor.constraint(equalTo: popupView.leadingAnchor, constant: 16),
             checkmarkImageView.centerYAnchor.constraint(equalTo: popupView.centerYAnchor),
             checkmarkImageView.widthAnchor.constraint(equalToConstant: 40),
             checkmarkImageView.heightAnchor.constraint(equalToConstant: 40),
             
+            // Layout constraints for messageLabel
             messageLabel.leadingAnchor.constraint(equalTo: checkmarkImageView.trailingAnchor, constant: 8),
             messageLabel.centerYAnchor.constraint(equalTo: popupView.centerYAnchor),
             messageLabel.trailingAnchor.constraint(equalTo: popupView.trailingAnchor, constant: -16)
         ])
         
+        // Show popup with animation
         popupView.alpha = 0
         UIView.animate(withDuration: 0.3, animations: {
             popupView.alpha = 1
