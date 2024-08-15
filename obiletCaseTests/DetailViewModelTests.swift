@@ -23,14 +23,9 @@ final class DetailViewModelTests: XCTestCase {
             description: "This is a sample product description.",
             category: Category.electronics,
             image: "https://example.com/image.jpg",
-            rating: Rating(
-                rate: 4.5,
-                count: 120
-            )
+            rating: Rating( rate: 4.5, count: 120)
         )
-        viewModel = DetailViewModel(
-            product: product
-        )
+        viewModel = DetailViewModel( product: product)
     }
     
     override func tearDown() {
@@ -48,7 +43,7 @@ final class DetailViewModelTests: XCTestCase {
     }
     
     private func testPrice() {
-        XCTAssertEqual(viewModel.price,  99.99,)
+        XCTAssertEqual(viewModel.price,  99.99)
     }
     
     private func testRating() {
