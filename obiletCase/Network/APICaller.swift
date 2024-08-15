@@ -8,25 +8,35 @@
 import Foundation
 
 class APICaller {
-    func fetchData(completion: @escaping((Result<([ProductModel]), Error>) -> ())) {
+    private var session: URLSession
+    
+    init(session: URLSession = .shared) {
+        self.session = session
+    }
+    
+    func fetchData(completion: @escaping ((Result<[ProductModel], Error>) -> ())) {
         let url = URL(string: ServiceConstants.serviceEndpoint())
         print("URL: \(url)")
-        URLSession.shared.dataTask(with: url!) { data, response, error in
+        session.dataTask(with: url!) { data, response, error in
             if let error = error {
                 print(error.localizedDescription)
-                print("error")
                 completion(.failure(error))
+                return
             }
             
-            if let data = data {
-                print("data")
-                let result = try? JSONDecoder().decode([ProductModel].self, from: data)
-                
-                if let result = result {
-                    print("complete success")
-                    completion(.success(result.self))
-                }
+            guard let data = data else {
+                let error = NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: "No data"])
+                completion(.failure(error))
+                return
+            }
+            
+            do {
+                let result = try JSONDecoder().decode([ProductModel].self, from: data)
+                completion(.success(result))
+            } catch {
+                completion(.failure(error))
             }
         }.resume()
     }
 }
+
