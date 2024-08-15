@@ -63,7 +63,7 @@ The project follows the MVVM (Model-View-ViewModel) architecture, making the cod
     open obiletcase.xcodeproj
     ```
 
-3. Install dependencies (if any):
+3. Install dependencies:
 
     ```bash
     pod install
