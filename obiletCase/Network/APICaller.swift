@@ -20,7 +20,7 @@ class APICaller {
     ///   It returns either an array of ProductModel on success or an Error on failure.
     func fetchData(completion: @escaping ((Result<[ProductModel], Error>) -> ())) {
         let url = URL(string: ServiceConstants.serviceEndpoint())
-        print("URL: \(url)")
+        print("URL: \(String(describing: url))")
         session.dataTask(with: url!) { data, response, error in
             if let error = error {
                 print(error.localizedDescription)
