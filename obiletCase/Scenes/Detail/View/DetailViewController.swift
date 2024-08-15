@@ -15,8 +15,10 @@ final class DetailViewController: UIViewController {
 
     private lazy var productImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.contentMode = .scaleToFill
-        imageView.layer.cornerRadius = 5
+        imageView.contentMode = .scaleAspectFill
+        imageView.layer.cornerRadius = 10
+        imageView.layer.borderColor = UIColor.lightGray.cgColor
+        imageView.layer.borderWidth = 1
         imageView.clipsToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
@@ -26,6 +28,7 @@ final class DetailViewController: UIViewController {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 24, weight: .bold)
         label.numberOfLines = 0
+        label.textColor = .label
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -34,22 +37,25 @@ final class DetailViewController: UIViewController {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 16)
         label.numberOfLines = 0
+        label.textColor = .label
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     private lazy var priceLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 16)
+        label.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
         label.numberOfLines = 0
+        label.textColor = .label
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
-    private lazy var stockStatusLabel: UILabel = {
+    private lazy var ratingLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 16)
         label.numberOfLines = 0
+        label.textColor = .systemOrange
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -67,7 +73,7 @@ final class DetailViewController: UIViewController {
         view.addSubview(titleLabel)
         view.addSubview(descriptionLabel)
         view.addSubview(priceLabel)
-        view.addSubview(stockStatusLabel)
+        view.addSubview(ratingLabel)
     }
     
     private func setupConstraints() {
@@ -76,7 +82,6 @@ final class DetailViewController: UIViewController {
             make.leading.equalToSuperview().offset(20)
             make.trailing.equalToSuperview().inset(20)
             make.height.equalTo(300)
-            make.width.equalTo(400)
         }
         
         titleLabel.snp.makeConstraints { make in
@@ -85,25 +90,27 @@ final class DetailViewController: UIViewController {
             make.trailing.equalToSuperview().inset(20)
         }
         
-        descriptionLabel.snp.makeConstraints { make in
+        priceLabel.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom).offset(20)
             make.leading.equalToSuperview().offset(20)
-            make.trailing.equalToSuperview().inset(20)
-            make.bottom.lessThanOrEqualToSuperview().offset(-20)
+            make.width.lessThanOrEqualToSuperview().multipliedBy(0.5)
         }
-        priceLabel.snp.makeConstraints { make in
-            make.top.equalTo(descriptionLabel.snp.bottom).offset(20)
-            make.leading.equalToSuperview().offset(20)
+        
+        ratingLabel.snp.makeConstraints { make in
+            make.top.equalTo(titleLabel.snp.bottom).offset(20)
             make.trailing.equalToSuperview().inset(20)
-            make.bottom.lessThanOrEqualToSuperview().offset(-20)
+            make.leading.equalTo(priceLabel.snp.trailing).offset(10)
+            make.width.lessThanOrEqualToSuperview().multipliedBy(0.4)
         }
-        stockStatusLabel.snp.makeConstraints { make in
+        
+        descriptionLabel.snp.makeConstraints { make in
             make.top.equalTo(priceLabel.snp.bottom).offset(20)
             make.leading.equalToSuperview().offset(20)
             make.trailing.equalToSuperview().inset(20)
             make.bottom.lessThanOrEqualToSuperview().offset(-20)
         }
     }
+
     
     private func populateData() {
         guard let product = viewModel.product else { return }
@@ -112,6 +119,6 @@ final class DetailViewController: UIViewController {
         titleLabel.text = product.title
         descriptionLabel.text = product.description
         priceLabel.text = String(describing: product.price) + "$"
+        ratingLabel.text = String(describing: product.rating.rate) + "⭐️" + (" (\(product.rating.count)") + "👤)"
     }
 }
-

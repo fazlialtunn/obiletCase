@@ -22,6 +22,14 @@ final class DetailViewModel {
         return product?.description ?? "Description"
     }
     
+    var price: Double {
+        return product?.price ?? 0
+    }
+    
+    var rating: Double {
+        return product?.rating.rate ?? 0
+    }
+    
     var imageUrl: URL? {
         return URL(string: product?.image ?? "")
     }

@@ -14,40 +14,51 @@ final class HomeViewModel {
     var filteredProducts = [ProductModel]()
     let categories = ["electronics", "jewelery", "men's clothing", "women's clothing"]
     var selectedCategory: String?
+    var searchText: String = ""
     
     func fetchData() {
         APICaller().fetchData { [weak self] result in
             switch result {
             case .success(let newProducts):
                 self?.allProducts = newProducts
-                self?.products = newProducts
-                self?.filteredProducts = newProducts
-                self?.didUpdateProducts?()
+                self?.applyFilters()
             case .failure(let error):
                 print(error.localizedDescription)
             }
         }
     }
     
+    func applyFilters() {
+        var filtered = allProducts
+        
+        if let category = selectedCategory {
+            filtered = filtered.filter { $0.category.rawValue == category }
+        }
+        
+        if !searchText.isEmpty {
+            filtered = filtered.filter { $0.title.lowercased().contains(searchText.lowercased()) }
+        }
+        
+        filteredProducts = filtered
+        didUpdateProducts?()
+    }
     
     func filterProducts(by searchText: String) {
-        if searchText.isEmpty {
-            products = allProducts
-        } else {
-            products = allProducts.filter { $0.title.lowercased().contains(searchText.lowercased()) }
-        }
-        didUpdateProducts?()
+        self.searchText = searchText
+        applyFilters()
     }
     
     func filterProducts(with category: String) {
-        if category.isEmpty {
-            filteredProducts = products
-        } else {
-            filteredProducts = products.filter { $0.category.rawValue == category }
-        }
-        didUpdateProducts?()
+        selectedCategory = category.isEmpty ? nil : category
+        applyFilters()
     }
     
+    func clearFilter() {
+        selectedCategory = nil
+        searchText = ""
+        filteredProducts = allProducts
+        didUpdateProducts?()
+    }
     
     var didUpdateProducts: (() -> Void)?
     
@@ -58,11 +69,4 @@ final class HomeViewModel {
     func product(at index: Int) -> ProductModel {
         return filteredProducts[index]
     }
-    
-    func clearFilter() {
-        selectedCategory = nil
-        filteredProducts = products
-        didUpdateProducts?()
-    }
 }
-

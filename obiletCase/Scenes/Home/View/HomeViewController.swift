@@ -41,13 +41,47 @@ final class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        title = "Welcome to Obilet Case Study"
+        title = "Home Page"
         navigationController?.navigationBar.tintColor = .label
+        setupNavigationBar()
         configureSearchBar()
         configureCategoryCollectionView() 
         configureTableView()
         bindViewModel()
         fetchData()
+    }
+    
+    private func setupNavigationBar() {
+        let titleView = UIView()
+
+        let titleLabel = UILabel()
+        titleLabel.text = "Home Page"
+        titleLabel.font = UIFont.systemFont(ofSize: 18, weight: .bold)
+        titleLabel.textColor = .label
+
+        let iconImageView = UIImageView()
+        iconImageView.image = UIImage(systemName: "house.fill") // Use your desired icon here
+        iconImageView.contentMode = .scaleAspectFit
+        iconImageView.tintColor = .label
+
+        titleView.addSubview(iconImageView)
+        titleView.addSubview(titleLabel)
+
+        // Layout the icon and the label
+        iconImageView.snp.makeConstraints { make in
+            make.leading.equalToSuperview()
+            make.centerY.equalToSuperview()
+            make.height.width.equalTo(24) // Adjust size as needed
+        }
+
+        titleLabel.snp.makeConstraints { make in
+            make.leading.equalTo(iconImageView.snp.trailing).offset(8)
+            make.trailing.equalToSuperview()
+            make.centerY.equalToSuperview()
+        }
+
+        navigationItem.titleView = titleView
+        titleView.sizeToFit()
     }
     
     private func configureSearchBar() {
@@ -63,7 +97,7 @@ final class HomeViewController: UIViewController {
         view.addSubview(categoryCollectionView)
         categoryCollectionView.snp.makeConstraints { make in
             make.top.equalTo(searchBar.snp.bottom).offset(10)
-            make.leading.trailing.equalToSuperview()
+            make.leading.trailing.equalToSuperview().offset(5)
             make.height.equalTo(50)
         }
     }
@@ -99,32 +133,6 @@ extension HomeViewController: UISearchBarDelegate {
     }
 }
 
-extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.numberOfSection(section)
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: HomeTableViewCell.identifier, for: indexPath) as? HomeTableViewCell else { return UITableViewCell() }
-        let product = viewModel.product(at: indexPath.row)
-        cell.configure(with: product)
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 200
-    }
-}
-
-extension HomeViewController {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let product = viewModel.product(at: indexPath.row)
-        let detailViewController = DetailViewController()
-        detailViewController.viewModel = DetailViewModel(product: product)
-        navigationController?.pushViewController(detailViewController, animated: true)
-    }
-}
-
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.categories.count
@@ -155,7 +163,6 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             viewModel.clearFilter()
         } else {
             // Select and filter products
-            viewModel.selectedCategory = selectedCategory
             viewModel.filterProducts(with: selectedCategory)
         }
         
@@ -167,3 +174,28 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
 }
 
+extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel.numberOfSection(section)
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: HomeTableViewCell.identifier, for: indexPath) as? HomeTableViewCell else { return UITableViewCell() }
+        let product = viewModel.product(at: indexPath.row)
+        cell.configure(with: product)
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 200
+    }
+}
+
+extension HomeViewController {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let product = viewModel.product(at: indexPath.row)
+        let detailViewController = DetailViewController()
+        detailViewController.viewModel = DetailViewModel(product: product)
+        navigationController?.pushViewController(detailViewController, animated: true)
+    }
+}

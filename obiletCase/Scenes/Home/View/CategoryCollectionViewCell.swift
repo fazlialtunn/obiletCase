@@ -27,7 +27,7 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         }
         contentView.layer.cornerRadius = 5
         contentView.layer.borderWidth = 1
-        contentView.layer.borderColor = UIColor.label.cgColor
+        contentView.layer.borderColor = UIColor.lightGray.cgColor
     }
     
     required init?(coder: NSCoder) {
