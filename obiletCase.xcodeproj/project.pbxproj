@@ -118,13 +118,11 @@
 		8B3098552C6B5D9000B0BCAD /* obiletCase */ = {
 			isa = PBXGroup;
 			children = (
+				8B3098642C6B5D9100B0BCAD /* Info.plist */,
 				8B30986D2C6B615200B0BCAD /* Support */,
 				8B30987E2C6B632A00B0BCAD /* Network */,
 				8B3098832C6B642B00B0BCAD /* Model */,
 				8B30986A2C6B612400B0BCAD /* Scenes */,
-				8B30985F2C6B5D9100B0BCAD /* Assets.xcassets */,
-				8B3098612C6B5D9100B0BCAD /* LaunchScreen.storyboard */,
-				8B3098642C6B5D9100B0BCAD /* Info.plist */,
 			);
 			path = obiletCase;
 			sourceTree = "<group>";
@@ -159,6 +157,8 @@
 		8B30986D2C6B615200B0BCAD /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				8B30985F2C6B5D9100B0BCAD /* Assets.xcassets */,
+				8B3098612C6B5D9100B0BCAD /* LaunchScreen.storyboard */,
 				8B3098562C6B5D9000B0BCAD /* AppDelegate.swift */,
 				8B3098582C6B5D9000B0BCAD /* SceneDelegate.swift */,
 			);
