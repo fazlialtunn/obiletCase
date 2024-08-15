@@ -42,12 +42,6 @@ The project follows the MVVM (Model-View-ViewModel) architecture, making the cod
 - [SnapKit](https://github.com/SnapKit/SnapKit) - Used for Auto Layout constraints in code.
 - [SDWebImage](https://github.com/SDWebImage/SDWebImage) - Used for loading and caching images from URLs.
 
-## Requirements
-
-- iOS 14.0+
-- Xcode 12.0+
-- Swift 5.0+
-
 ## Installation
 
 1. Clone the repository:
