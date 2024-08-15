@@ -168,9 +168,8 @@
 		8B3098712C6B61C700B0BCAD /* View */ = {
 			isa = PBXGroup;
 			children = (
-				8B30985A2C6B5D9000B0BCAD /* HomeViewController.swift */,
-				8B3098862C6CF07D00B0BCAD /* HomeTableViewCell.swift */,
-				8B6924392C6D43CF009BF00B /* CategoryCollectionViewCell.swift */,
+				8B7591782C6EB9AB00F8DF2A /* Controllers */,
+				8B7591792C6EB9B200F8DF2A /* Cells */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -214,6 +213,23 @@
 				8B3098842C6B643600B0BCAD /* ProductModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		8B7591782C6EB9AB00F8DF2A /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				8B30985A2C6B5D9000B0BCAD /* HomeViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		8B7591792C6EB9B200F8DF2A /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				8B3098862C6CF07D00B0BCAD /* HomeTableViewCell.swift */,
+				8B6924392C6D43CF009BF00B /* CategoryCollectionViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
