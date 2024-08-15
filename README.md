@@ -11,9 +11,13 @@ ObiletCase is an iOS application built using Swift, focusing on product display 
 
 ## Screenshots
 
-| Home Screen | Product Details |
-|-------------|-----------------|
-| ![Home Screen](path_to_home_screen_image) | ![Product Details](path_to_product_details_image) |
+<img width="300" height="600" alt="Screenshot 2023-07-11 at 00 54 50" src="https://github.com/user-attachments/assets/4e3411fd-b1ac-4ecb-b62d-01f624dd28a9">
+<img width="300" height="600" alt="Screenshot 2023-07-11 at 00 54 50" src="https://github.com/user-attachments/assets/9e400b2e-5064-4834-897f-b75eeefcc823">
+<img width="300" height="600" alt="Screenshot 2023-07-11 at 00 54 50" src="https://github.com/user-attachments/assets/7582e9ad-77b1-4996-b057-efd4e62ee392">
+<img width="300" height="600" alt="Screenshot 2023-07-11 at 00 54 50" src="https://github.com/user-attachments/assets/7da57f06-9310-48b6-9fd6-b258cf4700e5">
+<img width="300" height="600" alt="Screenshot 2023-07-11 at 00 54 50" src="https://github.com/user-attachments/assets/fde48cd5-45dd-4551-8455-d56481964ebf">
+<img width="300" height="600" alt="Screenshot 2023-07-11 at 00 54 50" src="https://github.com/user-attachments/assets/1ab85470-e59d-424a-9c0c-cef815266661">
+<img width="300" height="600" alt="Screenshot 2023-07-11 at 00 54 50" src="https://github.com/user-attachments/assets/4c40fbbe-3800-428a-9d52-28b4dec392b4">
 
 ## Code Overview
 
@@ -36,6 +40,23 @@ The project follows the MVVM (Model-View-ViewModel) architecture, making the cod
 - **DetailViewController**: Shows detailed information about a selected product.
 - **HomeTableViewCell**: A custom table view cell used in the product list.
 - **CategoryCollectionViewCell**: A custom collection view cell used for category filtering.
+
+### Unit Tests
+
+The project includes unit tests to ensure the functionality and correctness of various components. Key aspects covered in the unit tests are:
+
+- **ViewModel Tests**: 
+  - **HomeViewModel**: Tests validate the correct filtering and searching of products based on user input and category selection. It ensures that the `filteredProducts` array updates accurately based on different filtering criteria.
+  - **DetailViewModel**: Tests ensure that the product details are correctly populated and displayed in the `DetailViewController`.
+
+- **Model Tests**: 
+  - **ProductModel**: Tests ensure that the `ProductModel` correctly encodes and decodes from JSON, verifying that the model’s data structure aligns with the API response.
+
+- **Networking Tests**: 
+  - **APICaller**: Tests validate that network requests are properly formed and that the data is parsed correctly into `ProductModel` instances. Mock data and responses are used to simulate API calls and ensure that the `fetchData` method behaves as expected.
+
+- **Service Constants Tests**: 
+  - Tests ensure that the base URL provided by `ServiceConstants` is correct and used consistently throughout the network layer.
 
 ## Dependencies
 
