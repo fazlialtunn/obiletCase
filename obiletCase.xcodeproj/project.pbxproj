@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8B2A1DF22C6E9C4C001BEB3B /* DetailViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2A1DF12C6E9C4C001BEB3B /* DetailViewModelTests.swift */; };
 		8B3098572C6B5D9000B0BCAD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3098562C6B5D9000B0BCAD /* AppDelegate.swift */; };
 		8B3098592C6B5D9000B0BCAD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3098582C6B5D9000B0BCAD /* SceneDelegate.swift */; };
 		8B30985B2C6B5D9000B0BCAD /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B30985A2C6B5D9000B0BCAD /* HomeViewController.swift */; };
@@ -25,7 +26,19 @@
 		8B69243A2C6D43CF009BF00B /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6924392C6D43CF009BF00B /* CategoryCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		8B2A1DF32C6E9C4C001BEB3B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8B30984B2C6B5D9000B0BCAD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8B3098522C6B5D9000B0BCAD;
+			remoteInfo = obiletCase;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		8B2A1DEF2C6E9C4C001BEB3B /* obiletCaseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = obiletCaseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B2A1DF12C6E9C4C001BEB3B /* DetailViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModelTests.swift; sourceTree = "<group>"; };
 		8B3098532C6B5D9000B0BCAD /* obiletCase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = obiletCase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B3098562C6B5D9000B0BCAD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8B3098582C6B5D9000B0BCAD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -44,6 +57,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		8B2A1DEC2C6E9C4C001BEB3B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8B3098502C6B5D9000B0BCAD /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -57,10 +77,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8B2A1DF02C6E9C4C001BEB3B /* obiletCaseTests */ = {
+			isa = PBXGroup;
+			children = (
+				8B2A1DF12C6E9C4C001BEB3B /* DetailViewModelTests.swift */,
+			);
+			path = obiletCaseTests;
+			sourceTree = "<group>";
+		};
 		8B30984A2C6B5D9000B0BCAD = {
 			isa = PBXGroup;
 			children = (
 				8B3098552C6B5D9000B0BCAD /* obiletCase */,
+				8B2A1DF02C6E9C4C001BEB3B /* obiletCaseTests */,
 				8B3098542C6B5D9000B0BCAD /* Products */,
 			);
 			sourceTree = "<group>";
@@ -69,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				8B3098532C6B5D9000B0BCAD /* obiletCase.app */,
+				8B2A1DEF2C6E9C4C001BEB3B /* obiletCaseTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -177,6 +207,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		8B2A1DEE2C6E9C4C001BEB3B /* obiletCaseTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8B2A1DF72C6E9C4C001BEB3B /* Build configuration list for PBXNativeTarget "obiletCaseTests" */;
+			buildPhases = (
+				8B2A1DEB2C6E9C4C001BEB3B /* Sources */,
+				8B2A1DEC2C6E9C4C001BEB3B /* Frameworks */,
+				8B2A1DED2C6E9C4C001BEB3B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8B2A1DF42C6E9C4C001BEB3B /* PBXTargetDependency */,
+			);
+			name = obiletCaseTests;
+			productName = obiletCaseTests;
+			productReference = 8B2A1DEF2C6E9C4C001BEB3B /* obiletCaseTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		8B3098522C6B5D9000B0BCAD /* obiletCase */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8B3098672C6B5D9100B0BCAD /* Build configuration list for PBXNativeTarget "obiletCase" */;
@@ -209,6 +257,10 @@
 				LastSwiftUpdateCheck = 1540;
 				LastUpgradeCheck = 1540;
 				TargetAttributes = {
+					8B2A1DEE2C6E9C4C001BEB3B = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = 8B3098522C6B5D9000B0BCAD;
+					};
 					8B3098522C6B5D9000B0BCAD = {
 						CreatedOnToolsVersion = 15.4;
 					};
@@ -232,11 +284,19 @@
 			projectRoot = "";
 			targets = (
 				8B3098522C6B5D9000B0BCAD /* obiletCase */,
+				8B2A1DEE2C6E9C4C001BEB3B /* obiletCaseTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		8B2A1DED2C6E9C4C001BEB3B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8B3098512C6B5D9000B0BCAD /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -249,6 +309,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		8B2A1DEB2C6E9C4C001BEB3B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8B2A1DF22C6E9C4C001BEB3B /* DetailViewModelTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8B30984F2C6B5D9000B0BCAD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -269,6 +337,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		8B2A1DF42C6E9C4C001BEB3B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8B3098522C6B5D9000B0BCAD /* obiletCase */;
+			targetProxy = 8B2A1DF32C6E9C4C001BEB3B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		8B3098612C6B5D9100B0BCAD /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -281,6 +357,42 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		8B2A1DF52C6E9C4C001BEB3B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = HM232RT6TS;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = faltungg.obiletCaseTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/obiletCase.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/obiletCase";
+			};
+			name = Debug;
+		};
+		8B2A1DF62C6E9C4C001BEB3B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = HM232RT6TS;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = faltungg.obiletCaseTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/obiletCase.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/obiletCase";
+			};
+			name = Release;
+		};
 		8B3098652C6B5D9100B0BCAD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -457,6 +569,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		8B2A1DF72C6E9C4C001BEB3B /* Build configuration list for PBXNativeTarget "obiletCaseTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8B2A1DF52C6E9C4C001BEB3B /* Debug */,
+				8B2A1DF62C6E9C4C001BEB3B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		8B30984E2C6B5D9000B0BCAD /* Build configuration list for PBXProject "obiletCase" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

@@ -7,13 +7,15 @@
 
 import Foundation
 
+/// `DetailViewModel` is responsible for providing data to the `DetailViewController`.
 final class DetailViewModel {
-    let product: ProductModel?
+    private let product: ProductModel?
     
     init(product: ProductModel) {
         self.product = product
     }
     
+    /// Provides the product's details including title, description, price, rating, reviewer count, and image URL.
     var title: String {
         return product?.title ?? "Title"
     }
@@ -38,4 +40,3 @@ final class DetailViewModel {
         return URL(string: product?.image ?? "")
     }
 }
-
