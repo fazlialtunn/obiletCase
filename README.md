@@ -12,10 +12,10 @@ ObiletCase is an iOS application built using Swift, focusing on product display 
 ## Screenshots
 
 ### Home Screen
-![Home Screen](https://github.com/user-attachments/assets/9e400b2e-5064-4834-897f-b75eeefcc823)
+<img width="322" alt="Screenshot 2023-07-11 at 00 54 50" src="https://github.com/user-attachments/assets/9e400b2e-5064-4834-897f-b75eeefcc823">
 
 ### Product Details
-![Product Details](https://github.com/user-attachments/assets/1ab85470-e59d-424a-9c0c-cef815266661)
+<img width="322" alt="Screenshot 2023-07-11 at 00 54 50" src="https://github.com/user-attachments/assets/1ab85470-e59d-424a-9c0c-cef815266661">
 
 ## Code Overview
 
