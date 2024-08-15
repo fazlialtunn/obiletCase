@@ -12,14 +12,14 @@ ObiletCase is an iOS application built using Swift, focusing on product display 
 ## Screenshots
 
 ### Home Screen
-<img width="322" alt="Screenshot 2023-07-11 at 00 54 50" src="https://github.com/user-attachments/assets/9e400b2e-5064-4834-897f-b75eeefcc823">
-<img width="322" alt="Screenshot 2023-07-11 at 00 54 50" src="https://github.com/user-attachments/assets/7582e9ad-77b1-4996-b057-efd4e62ee392">
-<img width="322" alt="Screenshot 2023-07-11 at 00 54 50" src="https://github.com/user-attachments/assets/7da57f06-9310-48b6-9fd6-b258cf4700e5">
-<img width="322" alt="Screenshot 2023-07-11 at 00 54 50" src="https://github.com/user-attachments/assets/fde48cd5-45dd-4551-8455-d56481964ebf">
+#### <img width="322" alt="Screenshot 2023-07-11 at 00 54 50" src="https://github.com/user-attachments/assets/9e400b2e-5064-4834-897f-b75eeefcc823">
+#### <img width="322" alt="Screenshot 2023-07-11 at 00 54 50" src="https://github.com/user-attachments/assets/7582e9ad-77b1-4996-b057-efd4e62ee392">
+#### <img width="322" alt="Screenshot 2023-07-11 at 00 54 50" src="https://github.com/user-attachments/assets/7da57f06-9310-48b6-9fd6-b258cf4700e5">
+#### <img width="322" alt="Screenshot 2023-07-11 at 00 54 50" src="https://github.com/user-attachments/assets/fde48cd5-45dd-4551-8455-d56481964ebf">
 
 ### Product Details
-<img width="322" alt="Screenshot 2023-07-11 at 00 54 50" src="https://github.com/user-attachments/assets/1ab85470-e59d-424a-9c0c-cef815266661">
-<img width="322" alt="Screenshot 2023-07-11 at 00 54 50" src="https://github.com/user-attachments/assets/4c40fbbe-3800-428a-9d52-28b4dec392b4">
+#### <img width="322" alt="Screenshot 2023-07-11 at 00 54 50" src="https://github.com/user-attachments/assets/1ab85470-e59d-424a-9c0c-cef815266661">
+#### <img width="322" alt="Screenshot 2023-07-11 at 00 54 50" src="https://github.com/user-attachments/assets/4c40fbbe-3800-428a-9d52-28b4dec392b4">
 
 ## Code Overview
 
