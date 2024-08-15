@@ -30,6 +30,10 @@ final class DetailViewModel {
         return product?.rating.rate ?? 0
     }
     
+    var reviewerCount: Int {
+        return product?.rating.count ?? 0
+    }
+    
     var imageUrl: URL? {
         return URL(string: product?.image ?? "")
     }

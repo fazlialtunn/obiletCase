@@ -11,7 +11,7 @@ final class HomeViewController: UIViewController {
     
     var viewModel = HomeViewModel()
     private var selectedCategoryIndexPath: IndexPath?
-
+    
     private lazy var searchBar: UISearchBar = {
         let searchBar = UISearchBar()
         searchBar.placeholder = "Search Products"
@@ -45,7 +45,7 @@ final class HomeViewController: UIViewController {
         navigationController?.navigationBar.tintColor = .label
         setupNavigationBar()
         configureSearchBar()
-        configureCategoryCollectionView() 
+        configureCategoryCollectionView()
         configureTableView()
         bindViewModel()
         fetchData()
@@ -53,33 +53,33 @@ final class HomeViewController: UIViewController {
     
     private func setupNavigationBar() {
         let titleView = UIView()
-
+        
         let titleLabel = UILabel()
         titleLabel.text = "Home Page"
         titleLabel.font = UIFont.systemFont(ofSize: 18, weight: .bold)
         titleLabel.textColor = .label
-
+        
         let iconImageView = UIImageView()
         iconImageView.image = UIImage(systemName: "house.fill") // Use your desired icon here
         iconImageView.contentMode = .scaleAspectFit
         iconImageView.tintColor = .label
-
+        
         titleView.addSubview(iconImageView)
         titleView.addSubview(titleLabel)
-
+        
         // Layout the icon and the label
         iconImageView.snp.makeConstraints { make in
             make.leading.equalToSuperview()
             make.centerY.equalToSuperview()
             make.height.width.equalTo(24) // Adjust size as needed
         }
-
+        
         titleLabel.snp.makeConstraints { make in
             make.leading.equalTo(iconImageView.snp.trailing).offset(8)
             make.trailing.equalToSuperview()
             make.centerY.equalToSuperview()
         }
-
+        
         navigationItem.titleView = titleView
         titleView.sizeToFit()
     }

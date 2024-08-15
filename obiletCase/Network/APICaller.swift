@@ -21,7 +21,7 @@ class APICaller {
             if let data = data {
                 print("data")
                 let result = try? JSONDecoder().decode([ProductModel].self, from: data)
-
+                
                 if let result = result {
                     print("complete success")
                     completion(.success(result.self))

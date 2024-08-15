@@ -9,7 +9,7 @@ import Foundation
 
 enum ServiceConstants: String {
     case BASE_URL = "https://fakestoreapi.com/products"
-
+    
     static func serviceEndpoint() -> String {
         "\(BASE_URL.rawValue)"
     }

@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 import SDWebImage
 
-class DetailViewController: UIViewController {
+final class DetailViewController: UIViewController {
     
     var viewModel: DetailViewModel?
     
@@ -31,23 +31,44 @@ class DetailViewController: UIViewController {
     
     private let priceLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
+        label.font = UIFont.systemFont(ofSize: 17, weight: .bold)
         label.textColor = .systemGreen
+        label.layer.backgroundColor = UIColor.systemGray6.cgColor
+        label.layer.cornerRadius = 4
+        label.layer.masksToBounds = true
+        label.textAlignment = .center
+        label.text = "Price: $0.00"
+        label.layer.shadowColor = UIColor.black.cgColor
+        label.layer.shadowOpacity = 0.1
+        label.layer.shadowOffset = CGSize(width: 0, height: 2)
+        label.layer.shadowRadius = 4
         return label
     }()
+    
+    private let ratingLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 17, weight: .bold)
+        label.textColor = .systemOrange
+        label.layer.borderColor = UIColor.systemOrange.cgColor
+        label.layer.borderWidth = 1
+        label.layer.cornerRadius = 4
+        label.layer.masksToBounds = true
+        label.textAlignment = .center
+        label.text = "Rating: 0 ⭐️"
+        label.layer.shadowColor = UIColor.black.cgColor
+        label.layer.shadowOpacity = 0.1
+        label.layer.shadowOffset = CGSize(width: 0, height: 2)
+        label.layer.shadowRadius = 4
+        return label
+    }()
+    
+    
     
     private let descriptionLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 16, weight: .regular)
         label.textColor = .secondaryLabel
         label.numberOfLines = 0
-        return label
-    }()
-    
-    private let ratingLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 18, weight: .medium)
-        label.textColor = .systemOrange
         return label
     }()
     
@@ -96,18 +117,20 @@ class DetailViewController: UIViewController {
         
         priceLabel.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom).offset(20)
-            make.leading.equalToSuperview().offset(20)
-            make.width.lessThanOrEqualToSuperview().multipliedBy(0.5) // Adjust width as needed
+            make.leading.equalToSuperview().offset(16)
+            make.width.lessThanOrEqualToSuperview().multipliedBy(0.35)
+            make.height.equalTo(40) // Adjusted height for better appearance
         }
         
         ratingLabel.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom).offset(20)
-            make.leading.equalTo(priceLabel.snp.trailing).offset(10) // Space between price and rating
-            make.trailing.equalToSuperview().inset(20)
+            make.leading.equalTo(priceLabel.snp.trailing).offset(10)
+            make.trailing.equalToSuperview().inset(16)
+            make.height.equalTo(priceLabel)
         }
         
         descriptionLabel.snp.makeConstraints { make in
-            make.top.equalTo(ratingLabel.snp.bottom).offset(16)
+            make.top.equalTo(priceLabel.snp.bottom).offset(16)
             make.leading.equalTo(titleLabel)
             make.trailing.equalTo(titleLabel)
         }
@@ -116,7 +139,7 @@ class DetailViewController: UIViewController {
             make.bottom.equalTo(view.safeAreaLayoutGuide).offset(-16)
             make.leading.equalTo(titleLabel)
             make.trailing.equalTo(titleLabel)
-            make.height.equalTo(50)
+            make.height.equalTo(55) // Slightly larger button
         }
     }
     
@@ -128,8 +151,8 @@ class DetailViewController: UIViewController {
         
         titleLabel.text = viewModel.title
         priceLabel.text = "Price: " + String(describing: viewModel.price) + "$"
-        descriptionLabel.text =  String(describing: viewModel.description)
-        ratingLabel.text = "Rating: \(viewModel.rating)" + "⭐️"
+        descriptionLabel.text = String(describing: viewModel.description)
+        ratingLabel.text = "Rating: \(viewModel.rating)" + "⭐️" + " (\(viewModel.reviewerCount)👤)"
         
         if let imageURL = viewModel.imageUrl {
             productImageView.sd_setImage(with: imageURL, completed: nil)
@@ -143,7 +166,11 @@ class DetailViewController: UIViewController {
     private func showSuccessPopup() {
         let popupView = UIView()
         popupView.backgroundColor = UIColor.systemGreen.withAlphaComponent(0.9)
-        popupView.layer.cornerRadius = 10
+        popupView.layer.cornerRadius = 12
+        popupView.layer.shadowColor = UIColor.black.cgColor
+        popupView.layer.shadowOpacity = 0.3
+        popupView.layer.shadowOffset = CGSize(width: 0, height: 4)
+        popupView.layer.shadowRadius = 8
         popupView.translatesAutoresizingMaskIntoConstraints = false
         
         let checkmarkImageView = UIImageView(image: UIImage(systemName: "checkmark.circle.fill"))
@@ -165,7 +192,7 @@ class DetailViewController: UIViewController {
             popupView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             popupView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             popupView.widthAnchor.constraint(equalToConstant: 300),
-            popupView.heightAnchor.constraint(equalToConstant: 100),
+            popupView.heightAnchor.constraint(equalToConstant: 120), // Adjusted height for better appearance
             
             checkmarkImageView.leadingAnchor.constraint(equalTo: popupView.leadingAnchor, constant: 16),
             checkmarkImageView.centerYAnchor.constraint(equalTo: popupView.centerYAnchor),
@@ -176,11 +203,11 @@ class DetailViewController: UIViewController {
             messageLabel.centerYAnchor.constraint(equalTo: popupView.centerYAnchor),
             messageLabel.trailingAnchor.constraint(equalTo: popupView.trailingAnchor, constant: -16)
         ])
+        
         popupView.alpha = 0
         UIView.animate(withDuration: 0.3, animations: {
             popupView.alpha = 1
         }) { _ in
-            // Hide the popup after 1.5 seconds
             UIView.animate(withDuration: 0.3, delay: 1.5, options: [], animations: {
                 popupView.alpha = 0
             }) { _ in
