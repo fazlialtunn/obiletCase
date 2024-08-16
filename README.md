@@ -90,7 +90,6 @@ The project includes unit tests to ensure the functionality and correctness of v
 
 1. Launch the app on your iOS device.
 2. Use the search bar to find specific products.
-3. Tap on any category in the horizontal collectionview.
 3. Tap on any category in the horizontal collection view to filter products.
 4. Tap on a product to view its details.
 
