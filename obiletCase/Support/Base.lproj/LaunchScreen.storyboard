@@ -25,8 +25,8 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SMART SHOP" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pbg-jD-5ZW">
-                                <rect key="frame" x="0.0" y="200.33333333333334" width="393" height="40.666666666666657"/>
-                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="34"/>
+                                <rect key="frame" x="0.0" y="177" width="393" height="64"/>
+                                <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="40"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>

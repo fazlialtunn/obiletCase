@@ -49,7 +49,6 @@ final class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        title = "Home Page"
         navigationController?.navigationBar.tintColor = .label
         setupNavigationBar()
         configureSearchBar()
@@ -65,7 +64,7 @@ final class HomeViewController: UIViewController {
         
         let titleLabel = UILabel()
         titleLabel.text = "Home Page"
-        titleLabel.font = UIFont.systemFont(ofSize: 18, weight: .bold)
+        titleLabel.font = UIFont(name: "Noteworthy-Bold", size: 18)
         titleLabel.textColor = .label
         
         let iconImageView = UIImageView()
