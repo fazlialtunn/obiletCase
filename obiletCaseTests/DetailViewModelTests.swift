@@ -28,6 +28,7 @@ final class DetailViewModelTests: XCTestCase {
         viewModel = DetailViewModel( product: product)
     }
     
+    // cleans up after each test method
     override func tearDown() {
         viewModel = nil
         product = nil

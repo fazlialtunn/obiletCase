@@ -26,6 +26,7 @@ final class ProductModelTests: XCTestCase {
     }
     """.data(using: .utf8)!
     
+    // test for decoding the model object
     func testProductModelDecoding() {
         let decoder = JSONDecoder()
         do {

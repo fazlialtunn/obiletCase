@@ -31,6 +31,7 @@ final class HomeViewModelTests: XCTestCase {
         viewModel.fetchData()
     }
 
+    // cleans up after each test method
     override func tearDown() {
         viewModel = nil
         mockAPICaller = nil

@@ -8,6 +8,7 @@
 import XCTest
 @testable import obiletCase
 
+// test for expected API URL
 final class ServiceConstantsTests: XCTestCase {
     
     private func testServiceEndpointReturnsCorrectURL() {
