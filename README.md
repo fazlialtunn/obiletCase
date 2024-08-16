@@ -7,7 +7,7 @@ ObiletCase is an iOS application built using Swift, focusing on product display 
 - **Product Listing**: Fetches products from an online API(https://fakestoreapi.com) and displays them in a list format.
 - **Category Filtering**: Users can filter products by categories such as Electronics, Jewelry, Men's Clothing, and Women's Clothing.
 - **Search Functionality**: Users can search for products by title.
-- **Product Details**: Tapping on a product opens a detailed view showing the product image, description, price, and rating.
+- **Product Details**: Tapping on a product opens a detailed view showing the product image, description, price, and rating. When you tap the add cart button in detail page. A popup welcomes you with a success message.
 
 ## Screenshots
 
