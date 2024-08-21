@@ -83,7 +83,7 @@ final class HomeViewModel {
     }
     
     /// Closure that is called when the products are updated and ready to be displayed.
-    var didUpdateProducts: (() -> Void)?
+    var didUpdateProducts: (VoidCallback)?
     
     /// Returns the number of products in the filtered list.
     func numberOfSection(_ section: Int) -> Int {
